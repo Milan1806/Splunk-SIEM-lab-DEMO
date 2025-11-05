@@ -1,0 +1,6 @@
+-- Privilege escalation detection (example SPL)
+index=main sourcetype=auth_logs
+| transaction user maxspan=5m startswith="authentication" endswith="sudo"
+| search eventcount>1 OR eventcount>0
+| table _time, user, host, eventcount, events
+| where mvfind(events, "sudo") >= 0

@@ -1,0 +1,6 @@
+-- Brute-force detection (example SPL)
+index=main sourcetype=auth_logs
+| stats count(eval(result=="failure")) AS failures, count(eval(result=="success")) AS successes by user, src_ip, host, span=1h
+| where failures >= 5 AND failures > successes
+| table _time, user, src_ip, host, failures, successes
+| rename _time as timestamp
