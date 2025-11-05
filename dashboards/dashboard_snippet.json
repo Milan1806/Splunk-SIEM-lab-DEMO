@@ -1,0 +1,25 @@
+{
+  "title": "Threat Detection \u2014 Brute & PrivEsc",
+  "panels": [
+    {
+      "type": "chart",
+      "title": "Failed logins by user (24h)",
+      "query": "index=main sourcetype=auth_logs | stats count(eval(result==\"failure\")) by user | sort -count | head 10"
+    },
+    {
+      "type": "chart",
+      "title": "Failed logins by src_ip (24h)",
+      "query": "index=main sourcetype=auth_logs | stats count(eval(result==\"failure\")) by src_ip | sort -count | head 10"
+    },
+    {
+      "type": "table",
+      "title": "Detected brute-force alerts",
+      "query": "(see queries/bruteforce_detection.spl)"
+    },
+    {
+      "type": "table",
+      "title": "Possible privilege escalation",
+      "query": "(see queries/priv_escalation_detection.spl)"
+    }
+  ]
+}
