@@ -27,9 +27,3 @@ Detecting brute-force and privilege-escalation activity is fundamental for prote
 
 **Ethics & safety**  
 This repo is intentionally synthetic and safe for public sharing. Do not use it to test against production systems without proper authorization.
-
----
-If you want, I can:  
-- Convert the dashboards to Splunk dashboard XML/JSON exports formatted for import.  
-- Produce a short screencast walkthrough (recorded) of the repo.  
-- Tailor the SPL to a specific Splunk app/version.
